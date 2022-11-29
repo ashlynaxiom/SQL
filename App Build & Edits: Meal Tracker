@@ -1,0 +1,34 @@
+-- Create App Table for Meal Log
+
+CREATE TABLE Meal_Log
+    (Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Food TEXT,
+    Meal TEXT,
+    Calories INTEGER);
+
+INSERT INTO Meal_Log(food, meal, calories) 
+    VALUES ("protein shake", "breakfast", 160);
+INSERT INTO Meal_Log(food, meal, calories) 
+    VALUES ("granola bar", "snack", 100);
+INSERT INTO Meal_Log(food, meal, calories) 
+    VALUES ("sandwich", "lunch", 370);
+INSERT INTO Meal_Log(food, meal, calories) 
+    VALUES ("yogurt", "snack", 100);
+INSERT INTO Meal_Log(food, meal, calories) 
+    VALUES ("salad", "dinner", 600);
+
+SELECT * FROM Meal_Log;
+
+
+-- UPDATE to emulate data updates
+
+UPDATE Meal_Log SET food = "premier protein shake" WHERE id = 1;
+
+SELECT * FROM Meal_Log;
+
+
+-- DELETE to emulate data deletions
+
+DELETE FROM Meal_Log WHERE ID = 4;
+
+SELECT * FROM Meal_Log;
