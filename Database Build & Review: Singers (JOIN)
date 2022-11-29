@@ -1,0 +1,53 @@
+-- Create Table of Singers
+
+CREATE TABLE Singers (name TEXT, location TEXT);
+
+INSERT INTO Singers 
+    VALUES ("Sam Smith", "UK");
+INSERT INTO Singers 
+    VALUES ("Taylor Swift", "USA");
+INSERT INTO Singers 
+    VALUES ("Janine", "New Zealand");
+INSERT INTO Singers 
+    VALUES ("Queen", "UK");
+INSERT INTO Singers 
+    VALUES ("Kevin Gates", "USA");
+INSERT INTO Singers 
+    VALUES ("Jessie Murph", "USA");
+INSERT INTO Singers 
+    VALUES ("Kasey Musgraves", "USA");
+INSERT INTO Singers 
+    VALUES ("Lauren Spencer Smith", "USA");
+    
+SELECT * FROM Singers;
+
+
+-- Create Table of Singers and their Best Song
+
+CREATE TABLE Singers_and_Songs (name TEXT, best_song TEXT);
+
+INSERT INTO Singers_and_Songs 
+    VALUES ("Sam Smith", "Burning");
+INSERT INTO Singers_and_Songs 
+    VALUES ("Taylor Swift", "All Too Well");
+INSERT INTO Singers_and_Songs 
+    VALUES ("Janine", "Too Late");
+INSERT INTO Singers_and_Songs 
+    VALUES ("Queen", "March of the Black Queen");
+INSERT INTO Singers_and_Songs 
+    VALUES ("Kevin Gates", "Posed to be in Love");
+INSERT INTO Singers_and_Songs 
+    VALUES ("Jessie Murph", "How Could You");
+INSERT INTO Singers_and_Songs 
+    VALUES ("Kasey Musgraves", "Space Cowboy");
+INSERT INTO Singers_and_Songs 
+    VALUES ("Lauren Spencer Smith", "Flowers");
+    
+SELECT * FROM Singers_and_Songs;
+
+
+-- JOIN Data from Singers and Singers_and_Songs
+
+SELECT Singers_and_Songs.name, Singers_and_Songs.best_song, Singers.location FROM Singers_and_Songs
+    LEFT OUTER JOIN Singers
+    ON Singers_and_Songs.name = Singers.name
