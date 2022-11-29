@@ -1,4 +1,4 @@
---Create a Clothing Store Database
+-- Create a Clothing Store Database
 
 CREATE TABLE Inventory (ID INTEGER, Name TEXT, Quantity INTEGER, aisle INTEGER, ItemType TEXT);
 
@@ -34,6 +34,6 @@ INSERT INTO Inventory
     VALUES(15, "Pink Leggings", 10, 5, "Clothing");
 
 
---Display the Database ordered by Aisle
+-- Display the Database ordered by Aisle
 
 SELECT ID, Name, aisle FROM Inventory ORDER BY aisle
