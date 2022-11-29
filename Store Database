@@ -1,0 +1,22 @@
+--Create a Clothing Store Database
+
+CREATE TABLE Inventory (ID INTEGER, Name TEXT, Quantity INTEGER, aisle INTEGER, ItemType TEXT);
+
+INSERT INTO Inventory VALUES(1, "Pink Shirt", 4, 1, "Clothing");
+INSERT INTO Inventory VALUES(2, "Blue Shirt", 6, 5, "Clothing");
+INSERT INTO Inventory VALUES(3, "Jeans", 10, 3, "Clothing");
+INSERT INTO Inventory VALUES(4, "Hoop Earrings", 4, 2, "Accessories");
+INSERT INTO Inventory VALUES(5, "Purple Shirt", 4, 1, "Clothing");
+INSERT INTO Inventory VALUES(6, "Yellow Shirt", 6, 5, "Clothing");
+INSERT INTO Inventory VALUES(7, "Dangle Earrings", 4, 2, "Accessories");
+INSERT INTO Inventory VALUES(8, "Pink Hat", 5, 3, "Accessories");
+INSERT INTO Inventory VALUES(9, "Pink Skirt", 6, 10, "Clothing");
+INSERT INTO Inventory VALUES(10, "Pink Scarf", 3, 1, "Accessories");
+INSERT INTO Inventory VALUES(11, "Sandles", 8, 10, "Shoes");
+INSERT INTO Inventory VALUES(12, "Boots", 8, 10, "Shoes");
+INSERT INTO Inventory VALUES(13, "Tennis Shoes", 8, 10, "Shoes");
+INSERT INTO Inventory VALUES(14, "Purple Scarf", 4, 1, "Accessories");
+INSERT INTO Inventory VALUES(15, "Pink Leggings", 10, 5, "Clothing");
+
+--Display the Database ordered by Aisle
+SELECT ID, Name, aisle FROM Inventory ORDER BY aisle
