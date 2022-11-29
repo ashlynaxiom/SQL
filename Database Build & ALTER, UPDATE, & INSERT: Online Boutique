@@ -1,0 +1,37 @@
+-- Create Table for Online Boutique Database
+
+CREATE TABLE clothes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT,
+    design TEXT);
+    
+INSERT INTO clothes (type, design)
+    VALUES ("dress", "pink polka dots");
+INSERT INTO clothes (type, design)
+    VALUES ("pants", "rainbow tie-dye");
+INSERT INTO clothes (type, design)
+    VALUES ("blazer", "black sequin");
+
+
+-- ALTER Database to include Price 
+
+ALTER TABLE clothes ADD price REAL;
+
+Select * FROM clothes;
+
+
+-- UPDATE Price of Items
+
+UPDATE clothes SET price = 10 WHERE id = 1;
+UPDATE clothes SET price = 20 WHERE id = 2;
+UPDATE clothes SET price = 30 WHERE id = 3;
+
+SELECT * FROM clothes;
+
+
+-- INSERT New Item to include Price
+
+INSERT INTO clothes (type, design, price)
+    VALUES ("shoes", "white", 40);
+
+SELECT * FROM clothes;
