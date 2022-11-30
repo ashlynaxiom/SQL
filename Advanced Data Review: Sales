@@ -1,6 +1,48 @@
 Answer the following questions by utilizing the SQLite Studio RDBMS with BIT_DB data.
 
 
+-- Which locations in New York received at least 3 orders in January, and how many orders did they each receive? 
+
+SELECT DISTINCT location, COUNT(orderid)
+FROM JanSales
+WHERE location LIKE '%NY&'
+GROUP BY Location
+HAVING COUNT(orderid)>2;
+
+
+-- How many of each type of headphone were sold in February?
+
+SELECT Product, SUM(Quantity) as Total_Items_Sold
+FROM FebSales
+WHERE Product LIKE '%Headphones%'
+GROUP BY Product;
+
+
+-- What was the average amount spent per account in February? 
+
+SELECT AVG(quantity*price) as Total_Spent
+FROM FebSales f
+LEFT JOIN Customers c
+ON f.orderid=c.order_id;
+
+
+-- What was the average quantity of products purchased per account in February?
+
+SELECT SUM(quantity)/COUNT(c.acctnum) as AVG_Items_Per_Acct
+FROM FebSales f
+LEFT JOIN Customers c
+ON f.orderid=c.order_id;
+
+
+-- Which product brought in the most revenue in January and how much revenue did it bring in total?
+
+SELECT Product, SUM(quantity*price)
+FROM JanSales
+GROUP BY Product
+ORDER BY SUM(quantity*price) DESC
+LIMIT 1;
+
+
 -- How many orders were placed in January?
 
 SELECT COUNT(orderid) FROM JanSales;
