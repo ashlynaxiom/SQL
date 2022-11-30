@@ -53,4 +53,39 @@ AVG(quantity*price)
 FROM FebSales f
 LEFT JOIN Customers c
 ON f.orderid=c.order_id
+
+
+-- List all the products sold in Los Angeles in February, and include how many of each were sold.
+
+SELECT DISTINCT Product, SUM(Quantity), Location
+FROM FebSales
+WHERE Location LIKE '%Los Angeles%'
+GROUP BY Product;
+
+
+-- Additional Review
+
+SELECT orderdate
+FROM FebSales
+WHERE orderdate BETWEEN '02/13/19 00:00' AND '02/18/19 00:00';
+
+
+SELECT location
+FROM FebSales
+WHERE orderdate = '02/18/19 01:35';
+
+
+SELECT SUM(Quantity)
+FROM FebSales
+WHERE orderdate like '02/18/19%';
+
+
+SELECT DISTINCT Product
+FROM FebSales
+WHERE Product like '%Batteries%';
+
+
+SELECT DISTINCT Product, Price
+FROM FebSales
+WHERE Price like '%.99';
 WHERE f.quantity>2;
