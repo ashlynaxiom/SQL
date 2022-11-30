@@ -1,0 +1,56 @@
+Answer the following questions by utilizing the SQLite Studio RDBMS with BIT_DB data.
+
+
+-- How many orders were placed in January?
+
+SELECT COUNT(orderid) FROM JanSales;
+
+
+-- How many of those orders were for an iPhone?
+
+SELECT COUNT(orderid) FROM JanSales
+WHERE Product='iPhone';
+
+
+-- Select the customer account numbers for all the orders that were placed in February.
+
+SELECT c.acctnum, f.orderid
+FROM FebSales f
+INNER JOIN Customers C
+WHERE c.order_id=f.orderid;
+
+
+-- Which product was the cheapest one sold in January, and what was the price?
+
+SELECT Product, price
+FROM JanSales
+GROUP by Product
+ORDER BY price asc;
+
+
+-- What is the total revenue for each product sold in January? 
+
+SELECT SUM(Quantity)*price as Revenue, product
+FROM JanSales 
+GROUP BY Product;
+
+
+-- Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+
+SELECT Product, 
+SUM(Quantity), 
+SUM(Quantity)*price as Revenue
+FROM FebSales
+WHERE location='548 Lincoln St, Seattle, WA 98101'
+GROUP BY Product;
+
+
+-- How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+
+SELECT
+COUNT(distinct c.acctnum),
+AVG(quantity*price)
+FROM FebSales f
+LEFT JOIN Customers c
+ON f.orderid=c.order_id
+WHERE f.quantity>2;
