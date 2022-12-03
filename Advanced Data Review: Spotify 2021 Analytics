@@ -1,0 +1,84 @@
+-- For this project, I downloaded Spotify data from Kaggle. 
+-- I then created a table to insert Spotify data into.
+-- Finally, I performed analytics on the data using SQL. 
+
+
+-- Create the Table.
+
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL );
+
+
+-- View the data.
+
+SELECT * FROM BIT_DB.Spotifydata;
+
+
+-- Determine the avg popularity, danceability, and energy by artist and track. 
+
+SELECT
+artist_name,
+track_name,
+avg(popularity),
+avg(danceability),
+avg(energy)
+FROM Spotifydata
+GROUP BY artist_name, track_name;
+
+
+-- Determine who the Top 10 artists are by popularity.
+
+SELECT track_name, artist_name, popularity
+FROM BIT_DB.spotifydata
+ORDER BY popularity desc
+LIMIT 10;
+
+
+-- Determine the tracks with below-average loudness.
+
+SELECT
+artist_name,
+track_name,
+id,
+popularity
+FROM Spotifydata
+WHERE loudness <-5.90392;
+
+
+-- Determine the tracks with above-average danceability.
+
+SELECT
+artist_name,
+track_name,
+id,
+popularity
+FROM Spotifydata
+WHERE danceability >0.68572;
+
+
+-- Determine the artist that released the longest song. 
+
+SELECT
+artist_name,
+track_name,
+duration_ms
+FROM Spotifydata
+ORDER BY duration_ms DESC
+LIMIT 1;
