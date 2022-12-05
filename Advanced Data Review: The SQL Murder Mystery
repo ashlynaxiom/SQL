@@ -1,0 +1,59 @@
+-- In this project I completed the SQL Murder Mystery created by Joon Park and Cathy He through Knight Lab.
+-- The project included reviewing data from several tables and JOINing the data to determine a solution. 
+
+
+-- Review Crime Scene Reports
+
+SELECT date, type, description, city from crime_scene_report
+WHERE city='SQL City' AND type='murder';
+
+
+-- Identify Witnesses
+
+SELECT ID, NAME, license_id, address_number, ADDRESS_STREET_NAME, ssn
+FROM PERSON
+WHERE NAME like '%Annabel%;
+
+SELECT ID, NAME, license_id, address_number, ADDRESS_STREET_NAME, ssn
+FROM PERSON
+WHERE ADDRESS_STREET_NAME like '%Northwestern%'
+ORDER BY address_number DESC;
+
+
+-- Review Witness #1's Statement
+
+SELECT * FROM INTERVIEW
+WHERE PERSON_ID='16371';
+
+
+-- Review Witness #2's Statement
+
+SELECT * FROM INTERVIEW
+WHERE PERSON_ID='14887';
+
+
+-- Review Membership IDs based on Witness #2's Statement for Possible Suspects
+
+SELECT * FROM GET_FIT_NOW_MEMBER
+WHERE ID LIKE '%48Z%';
+
+
+-- Review Gym Check In to pull who was at the gym at the same time as Annabel
+
+SELECT id, name, c.check_in_date, c.check_in_time, c.check_out_time
+FROM get_fit_now_member
+JOIN get_fit_now_check_in c
+ON c.membership_id=get_fit_now_member.id
+WHERE c.check_in_date LIKE '20180109';
+
+
+-- Review License Plates based on Witness #2's Statement and compare to who was at the gym at the same time as Annabel
+
+SELECT id, name, license_id, dl.age, dl.height, dl.hair_color, dl.eye_color, dl.gender, dl.plate_number
+FROM person
+JOIN drivers_license dl
+ON person.license_id=dl.id
+WHERE dl.plate_number LIKE '%H42W%';
+
+
+-- Task completed.
