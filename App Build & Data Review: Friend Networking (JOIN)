@@ -1,7 +1,7 @@
 -- For this project, I utilized data provided through Khan Academy to edit, add, and review data connections.
 
 
--- Create Table for FriendBook Database
+-- Table for FriendBook Database
 
 CREATE TABLE persons (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -15,7 +15,7 @@ INSERT INTO persons (id, fullname, age) VALUES (4, "Shish Kabob", "20");
 INSERT INTO persons (id, fullname, age) VALUES (5, "Fluffy Sparkles", "8");
 
 
--- Create Table to Capture FriendBook Hobbies
+-- Table to Capture FriendBook Hobbies
 
 CREATE table hobbies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
