@@ -1,3 +1,6 @@
+-- For this project, I created an application database, populated application data, and used this information to update and alter the database.
+
+
 -- Create Table for Online Boutique Database
 
 CREATE TABLE clothes (
