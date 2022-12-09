@@ -1,6 +1,6 @@
 -- For this project, I downloaded Spotify data from Kaggle. 
 -- I then created a table to insert Spotify data into.
--- Finally, I performed analytics on the data using SQL. 
+-- Finally, I performed analytics on the data using SQLite Studio.
 
 
 -- Create the Table.
