@@ -1,4 +1,7 @@
--- Create Table with Super Bowl Data
+-- For this project, I utilized data provided by Khan Academy to complete a thorough data review utilizing SQLite Studio. 
+
+
+-- Table with Super Bowl Data
 
 CREATE TABLE superbowls(
   Date      TEXT PRIMARY KEY,
