@@ -1,3 +1,6 @@
+-- For this project, I created an application database, populated application data, and utilized this information to complete a database review and edits.
+
+
 -- Create App Table for Meal Log
 
 CREATE TABLE Meal_Log
