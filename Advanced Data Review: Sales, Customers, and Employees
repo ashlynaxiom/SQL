@@ -1,0 +1,40 @@
+-- For this project, I addressed the following questions in SQLite Studio utilizing imported sales, customer, and employee data.
+
+
+-- Show customers (their full names, customer ID, and country) who are not in the USA.
+
+SELECT firstname, lastname, customerid, country 
+FROM customers
+WHERE NOT country='USA'
+
+
+-- Show only customers from Brazil.
+
+SELECT firstname, lastname, customerid, country 
+FROM customers
+WHERE country='Brazil';
+
+
+-- Find the invoices of customers who are from Brazil. The resulting table should show the customer's full name, invoice ID, date of the invoice, and billing country.
+
+SELECT firstname, lastname, i.invoiceid, i.invoicedate, i.billingcountry
+FROM customers c
+JOIN invoices i
+ON c.customerid=i.customerid
+WHERE c.country='Brazil';
+
+
+-- Show the employees who are Sales Support Agents.
+
+SELECT * FROM employees
+WHERE title='Sales Support Agent';
+
+-- Find total sales by Slales Support Agent. 
+
+SELECT employeeid, lastname, firstname, title, SUM(i.total) AS sales
+FROM EMPLOYEES e
+JOIN customers c
+ON c.supportrepid=employeeid
+JOIN invoices i
+ON i.customerid=c.customerid
+GROUP BY employeeid;
