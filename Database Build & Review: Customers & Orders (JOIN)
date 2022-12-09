@@ -1,4 +1,7 @@
--- Create Table of Customers
+-- For this project, I utilized data provided through Khan Academy to JOIN tables and review the data. 
+
+
+-- Table of Customers
 
 CREATE TABLE customers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -13,7 +16,7 @@ INSERT INTO customers (id, name, email)
     VALUES (3, "Captain Awesome", "captain@awesome.com");
 
 
--- Create Table of Customer Orders
+-- Table of Customer Orders
 
 CREATE TABLE orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
