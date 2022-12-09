@@ -1,4 +1,4 @@
-For this project, I addressed the following questions by utilizing SQLite with imported data customer and sales data.
+-- For this project, I addressed the following questions through SQLite Studio utilizing imported customer and sales data.
 
 
 -- Which locations in New York received at least 3 orders in January, and how many orders did they each receive? 
