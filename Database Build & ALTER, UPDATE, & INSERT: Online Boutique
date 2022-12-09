@@ -1,4 +1,4 @@
--- For this project, I created an application database, populated application data, and used this information to update and alter the database.
+-- For this project, I created an application database, populated application data, and used this information to update and alter the database utilizing SQLite Studio.
 
 
 -- Create Table for Online Boutique Database
